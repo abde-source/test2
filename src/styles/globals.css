@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-black: #0A0A0A;
+  --color-premium-red: #DC2626;
+  --color-soft-gray: #F4F4F5;
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-deep-black text-white font-sans antialiased;
+  }
+  .light body,
+  body.light {
+    @apply bg-white text-deep-black;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-deep-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-premium-red rounded-full;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+  .glass-light {
+    @apply backdrop-blur-xl bg-black/5 border border-black/10;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-white to-premium-red bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
